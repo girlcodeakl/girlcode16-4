@@ -8,6 +8,7 @@
   <body>
       <form class= "submitform" method="post" action="/posts">
           <input class="messageInput" type="text" name="message" value="message goes here">
+          <input class="photoInput" type="text" name=photo value="photo url goes here">
           <input type="submit" value="Submit">
           <div class="note"></div>
       </form>
@@ -17,7 +18,9 @@
     $(".note").text("Thanks! Your message was saved!");
     var data = {};
       data.message = $(".messageInput").val();
+      data.photo = $(".photoInput").val();
     $.post( "/posts" , data );
+
 }
   $(".submitform").on("submit",myCoolFunction);
 
