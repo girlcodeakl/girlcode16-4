@@ -6,15 +6,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <div class="nav-bar">
-  <ul>
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/feed.html">Message Feed</a></li>
-    <li><a href="/post.html">Post Something</a></li>
-</ul>
-</div>
+    <div class="nav-links"> <a href="/index.html">Home</a></div>
+    <div class="nav-links"> <a href="/feed.html">Message Feed</a></div>
+    <div class="nav-links"> <a href="/post.html">Post Something</a></div>
+  </div>
+  <h1 class="title">Message Feed</h1>
+  <div class="message-list">
+  </div>
   <body>
       <form class= "submitform" method="post" action="/posts">
           <input class="messageInput" type="text" name="message" value="message goes here">
+          <input class="imageInput" type="text" name=image value="photo url goes here">
+          <input class="nameInput" type="text" name="name" value="type your name here">
           <input type="submit" value="Submit">
           <div class="note"></div>
       </form>
@@ -24,7 +27,10 @@
     $(".note").text("Thanks! Your message was saved!");
     var data = {};
       data.message = $(".messageInput").val();
+      data.image = $(".imageInput").val();
+      data.author = $(".nameInput").val();
     $.post( "/posts" , data );
+
 }
   $(".submitform").on("submit",myCoolFunction);
 

@@ -14,11 +14,10 @@ body {
 .nav-bar {
   display: flex;
   background-color: purple;
-  justify-content: center;
+  justify-content: space-around;
 
 }
 .nav-links {
-  background-color: green;
 
 }
 
