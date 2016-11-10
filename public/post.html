@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <div class="nav-bar">
-  <ul>
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/feed.html">Message Feed</a></li>
-    <li><a href="/post.html">Post Something</a></li>
-</ul>
-</div>
+    <div class="nav-links"> <a href="/index.html">Home</a></div>
+    <div class="nav-links"> <a href="/feed.html">Message Feed</a></div>
+    <div class="nav-links"> <a href="/post.html">Post Something</a></div>
+  </div>
+  <h1 class="title">Message Feed</h1>
+  <div class="message-list">
+  </div>
   <body>
       <form class= "submitform" method="post" action="/posts">
           <input class="messageInput" type="text" name="message" value="message goes here">
