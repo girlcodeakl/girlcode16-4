@@ -30,6 +30,7 @@ var saveNewPost = function (request, response) {
 
   var post= {};
 post.message = request.body.message;
+post.time = new Date();
 post.image = request.body.image;
 post.author = request.body.author;
 posts.push(post);

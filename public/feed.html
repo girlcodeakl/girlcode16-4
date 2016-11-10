@@ -3,6 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
   <title>Message Feed</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,12 +21,20 @@
   //Hello! This is the start of the JavaScript.
 
   var displayMessage = function(post) {
-    var postElement = $('<div class="message">' + post.message + '</div>');
+
+    if (post.time === undefined) {
+      post.time = new Date("2016-01-01");
+    }
+    
+    var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
     $(".message-list").append(postElement);
+
     var imageElement = $('<img src=' + post.image + '>');
     postElement.append(imageElement);
+
+
   }
-  
+
   var createFeed = function(data) {
     data.forEach(displayMessage);
   }
