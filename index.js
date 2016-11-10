@@ -25,7 +25,7 @@ var saveNewPost = function (request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   var post= {};
 post.message = request.body.message;
-post.time = "test";
+post.time = new Date();
 posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
