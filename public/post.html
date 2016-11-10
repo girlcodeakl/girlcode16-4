@@ -17,6 +17,7 @@
       <form class= "submitform" method="post" action="/posts">
           <input class="messageInput" type="text" name="message" value="message goes here">
           <input class="imageInput" type="text" name=image value="photo url goes here">
+          <input class="nameInput" type="text" name="name" value="type your name here">
           <input type="submit" value="Submit">
           <div class="note"></div>
       </form>
@@ -27,6 +28,7 @@
     var data = {};
       data.message = $(".messageInput").val();
       data.image = $(".imageInput").val();
+      data.author = $(".nameInput").val();
     $.post( "/posts" , data );
 
 }

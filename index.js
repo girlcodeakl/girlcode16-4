@@ -24,9 +24,11 @@ app.get('/posts', sendPostsList);
 var saveNewPost = function (request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   console.log(request.body.image)
+  console.log(request.body.author)
   var post= {};
 post.message = request.body.message;
 post.image = request.body.image;
+post.author = request.body.author;
 posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
