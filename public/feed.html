@@ -25,14 +25,14 @@
     if (post.time === undefined) {
       post.time = new Date("2016-01-01");
     }
-    
+
     var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
     $(".message-list").append(postElement);
 
     var imageElement = $('<img src=' + post.image + '>');
     postElement.append(imageElement);
-
-
+    var authorElement = $('<div class="author">' + post.author + '</div>');
+    postElement.append(authorElement);
   }
 
   var createFeed = function(data) {
