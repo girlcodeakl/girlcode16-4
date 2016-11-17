@@ -24,8 +24,10 @@
     $(".message-list").append(postElement);
     var imageElement = $('<img src=' + post.image + '>');
     postElement.append(imageElement);
+    var authorElement = $('<div class="author">' + post.author + '</div>');
+  postElement.append(authorElement);
   }
-  
+
   var createFeed = function(data) {
     data.forEach(displayMessage);
   }
