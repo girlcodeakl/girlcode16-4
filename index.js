@@ -26,7 +26,8 @@ var saveNewPost = function (request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   console.log(request.body.image)
   console.log(request.body.author)
-  
+  console.log(request.body.date)
+
   var post= {};
   post.message = request.body.message;
   post.time = new Date();
@@ -37,6 +38,7 @@ var saveNewPost = function (request, response) {
     post.image = request.body.image
   }
   post.author = request.body.author;
+  post.date = request.body.date;
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   var dbPosts = database.collection('posts');

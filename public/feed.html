@@ -33,6 +33,8 @@
     postElement.append(imageElement);
     var authorElement = $('<div class="author">' + post.author + '</div>');
     postElement.append(authorElement);
+    var dateElement = $('<div class="date">' + post.date + '</div>');
+    postElement.append(dateElement);
   }
 
   var createFeed = function(data) {
