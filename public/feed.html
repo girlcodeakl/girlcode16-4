@@ -17,6 +17,7 @@
   <div class="message-list">
   </div>
 
+
   <script>
   //Hello! This is the start of the JavaScript.
 
@@ -33,6 +34,8 @@
     postElement.append(imageElement);
     var authorElement = $('<div class="author">' + post.author + '</div>');
     postElement.append(authorElement);
+    var idElement = $('<div class="postId">' + post.id + '</div>');
+    postElement.append(idElement);
   }
 
   var createFeed = function(data) {
