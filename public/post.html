@@ -4,6 +4,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <meta charset='utf-8'>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   </head>
   <div class="nav-bar">
     <div class="nav-links"> <a href="/index.html">Home</a></div>
@@ -15,9 +17,10 @@
   </div>
   <body>
       <form class= "submitform" method="post" action="/posts">
-          <input class="messageInput" type="text" name="message" value="message goes here">
-          <input class="imageInput" type="text" name=image value="photo url goes here">
-          <input class="nameInput" type="text" name="name" value="type your name here">
+          <input class="messageInput" type="text" name="message" placeholder="message goes here">
+          <input class="imageInput" type="text" name=image placeholder="photo url goes here">
+          <input class="nameInput" type="text" name="name" placeholder="type your name here">
+          <input class="dateInput" type="text" name="date" placeholder="enter date here">
           <input type="submit" value="Submit">
           <div class="note"></div>
       </form>
@@ -29,10 +32,12 @@
       data.message = $(".messageInput").val();
       data.image = $(".imageInput").val();
       data.author = $(".nameInput").val();
+      data.date = $(".dateInput").val();
     $.post( "/posts" , data );
 
 }
   $(".submitform").on("submit",myCoolFunction);
+  $( ".dateInput" ).datepicker({ dateFormat: 'dd-mm-yy' });
 
       </script>
   </body>

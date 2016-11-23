@@ -36,6 +36,8 @@
     postElement.append(authorElement);
     var idElement = $('<div class="postId">' + post.id + '</div>');
     postElement.append(idElement);
+    var dateElement = $('<div class="date">' + post.date + '</div>');
+    postElement.append(dateElement);
   }
 
   var createFeed = function(data) {

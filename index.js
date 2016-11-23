@@ -22,14 +22,14 @@ var sendPostsList = function (request, response) {
 app.get('/posts', sendPostsList);
 
 app.get('/post', function (req, res) {
-   var searchId = req.query.id;
-   console.log("Searching for post " + searchId);
-   var filterFunction = function (post) {
-      return post.id == searchId;
-   };
-   var post = posts.find(filterFunction);
-   console.log(post)
-   res.send(post);
+  var searchId = req.query.id;
+  console.log("Searching for post " + searchId);
+  var filterFunction = function (post) {
+    return post.id == searchId;
+  };
+  var post = posts.find(filterFunction);
+  console.log(post)
+  res.send(post);
 
 });
 
@@ -39,18 +39,23 @@ var saveNewPost = function (request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   console.log(request.body.image)
   console.log(request.body.author)
+  console.log(request.body.date)
 
-
-  var post= {};
-post.message = request.body.message;
-post.time = new Date();
-post.id = Math.round(Math.random() * 10000);
-post.image = request.body.image;
-post.author = request.body.author;
-posts.push(post);
+  var post = {};
+  post.message = request.body.message;
+  post.time = new Date();
+  post.id = Math.round(Math.random() * 10000);
+  if (request.body.image === "") {
+    post.image = "http://www.abc.net.au/triplej/emoji/img/emojis/17.png";
+  } else {
+    post.image = request.body.image
+  }
+  post.author = request.body.author;
+  post.date = request.body.date;
+  posts.push(post);
   response.send("thanks for your message. Press back to add another");
   var dbPosts = database.collection('posts');
-dbPosts.insert(post);
+  dbPosts.insert(post);
 }
 app.post('/posts', saveNewPost);
 
