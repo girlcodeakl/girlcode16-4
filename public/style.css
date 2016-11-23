@@ -31,8 +31,13 @@ h1 {
   padding: 10px;
   border: 2px solid #FFB03B;
   border-radius: 5px;
+
 }
 
 .time {
   color: red;
+}
+
+.postId {
+  display: none;
 }

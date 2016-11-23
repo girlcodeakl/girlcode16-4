@@ -21,6 +21,19 @@ var sendPostsList = function (request, response) {
 }
 app.get('/posts', sendPostsList);
 
+app.get('/post', function (req, res) {
+  var searchId = req.query.id;
+  console.log("Searching for post " + searchId);
+  var filterFunction = function (post) {
+    return post.id == searchId;
+  };
+  var post = posts.find(filterFunction);
+  console.log(post)
+  res.send(post);
+
+});
+
+
 //let a client POST something new
 var saveNewPost = function (request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
@@ -28,10 +41,10 @@ var saveNewPost = function (request, response) {
   console.log(request.body.author)
   console.log(request.body.date)
 
-  var post= {};
+  var post = {};
   post.message = request.body.message;
   post.time = new Date();
-
+  post.id = Math.round(Math.random() * 10000);
   if (request.body.image === "") {
     post.image = "http://www.abc.net.au/triplej/emoji/img/emojis/17.png";
   } else {
