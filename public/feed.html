@@ -28,7 +28,7 @@
     }
 
     var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
-    $(".message-list").append(postElement);
+    $(".message-list").append(postElement) + post.button;
 
     var imageElement = $('<img src=' + post.image + '>');
     postElement.append(imageElement);
@@ -38,6 +38,11 @@
     postElement.append(idElement);
     var dateElement = $('<div class="date">' + post.date + '</div>');
     postElement.append(dateElement);
+    var buttonElement = $('<a href="#" class="likeButton">I am Going</a>');
+    postElement.append(buttonElement);
+    postElement.delegate(".likeButton", "click", function() {
+    alert("You're going to: " + post.text + "!");
+  });
   }
 
   var createFeed = function(data) {
