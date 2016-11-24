@@ -12,6 +12,7 @@
     <div class="nav-links"> <a href="/index.html">Home</a></div>
     <div class="nav-links"> <a href="/feed.html">Message Feed</a></div>
     <div class="nav-links"> <a href="/post.html">Post Something</a></div>
+    <button class = "showNextPost">Show Next Post</button>
   </div>
   <h1 class="title">Message Feed</h1>
   <div class="message-list">
@@ -40,7 +41,15 @@
     postElement.append(dateElement);
   }
 
-$.get("/random", displayMessage);
+  var nextPost = function () {
+
+  $(".message-list").empty ();
+
+  $.get("/random", displayMessage);
+
+  }
+
+  $(".showNextPost").on("click", nextPost);
 
   //This is the end of the JavaScript.
   </script>
