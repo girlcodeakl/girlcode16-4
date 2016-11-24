@@ -10,10 +10,10 @@
 <body>
   <div class="nav-bar">
     <div class="nav-links"> <a href="/index.html">Home</a></div>
-    <div class="nav-links"> <a href="/feed.html">Message Feed</a></div>
+    <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
     <div class="nav-links"> <a href="/post.html">Post Something</a></div>
   </div>
-  <h1 class="title">Message Feed</h1>
+  <h1 class="title">Up and Coming Hangs</h1>
   <div class="message-list">
   </div>
 
@@ -30,14 +30,15 @@
     var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
     $(".message-list").append(postElement);
 
-    var imageElement = $('<img src=' + post.image + '>');
-    postElement.append(imageElement);
-    var authorElement = $('<div class="author">' + post.author + '</div>');
+
+    var authorElement = $('<div class="author">' + "Hang With: " + post.author + '</div>');
     postElement.append(authorElement);
     var idElement = $('<div class="postId">' + post.id + '</div>');
     postElement.append(idElement);
-    var dateElement = $('<div class="date">' + post.date + '</div>');
+    var dateElement = $('<div class="date">' + "Time of Hang: " + post.date + '</div>');
     postElement.append(dateElement);
+    var imageElement = $('<img src=' + post.image + '>');
+    postElement.append(imageElement);
   }
 
   var createFeed = function(data) {
