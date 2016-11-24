@@ -43,9 +43,13 @@ h1 {
 }
 
 form {
-  flex-direction: column
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-input {
-  display: block
+.inputbox {
+  display: block;
+  justify-content: center;
+  padding: 15px;
 }
