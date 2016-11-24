@@ -41,7 +41,7 @@
     var buttonElement = $('<a href="#" class="likeButton">I am Going</a>');
     postElement.append(buttonElement);
     postElement.delegate(".likeButton", "click", function() {
-    alert("You're going to: " + post.text + "!");
+    alert("You're going to: " + post.message + "!");
   });
   }
 
