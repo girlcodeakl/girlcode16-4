@@ -10,12 +10,54 @@
       <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
       <div class="nav-links"> <a href="/post.html">Post Something</a></div>
     </div>
-    <h1 class="title">Home</h1>
+    <h1 class="title">Wanna Hang?!</h1>
     <div class="message-list">
     </div>
-      <h1>This is index.html</h1>
-      <h2>I hope you like it</h2>
-      <p>This is a paragraph.</p>
+
+        <script>
+        var showThisMessage = function (message) {
+          var displayArea = document.getElementById("display-area");
+          displayArea.innerHTML = message;
+        };
+
+        var makeAndShowConcept = function () {
+          var randomConcept = getRandomConcept();
+          showThisMessage(randomConcept);
+        };
+        var pickRandom = function (list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+var getRandomConcept = function () {
+  var sentence = [];
+
+
+  sentence.push("go outside?");
+  sentence.push("get creative?");
+  sentence.push("play sports?");
+  sentence.push("make friends?");
+  sentence.push("have fun?");
+  sentence.push("partaaaaay?");
+  sentence.push("enjoy life?");
+  sentence.push("meet up?");
+  sentence.push("explore new places?");
+  sentence.push("try new things?");
+  sentence.push("push your limits?");
+  sentence.push("shake things up?");
+
+
+  var myConcept = " Wanna " + pickRandom(sentence) ;
+  return myConcept;
+};
+setInterval(makeAndShowConcept,1000); 
+
+</script>
+
+
+<h1 id = "display-area"></h1>
+      <h2>Wanna Hang?! is a go-to place to invite others to your adventure or join in with cool hangs near you. <br>
+         Post your activity or start searching now!</h2>
+      <p>"The online hang-out app that everyone is talking about" - John Key <br>
+          "The webs greatest tool for connecting awesome individuals" - Art Green</p>
   </body>
 
 </html>
