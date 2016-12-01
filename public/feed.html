@@ -39,11 +39,11 @@
     postElement.append(dateElement);
     var imageElement = $('<img src=' + post.image + '>');
     postElement.append(imageElement);
-    var buttonElement = $('<a href="#" class="likeButton">I am Going</a>');
+    var buttonElement = $('<a href="#" class="likeButton">I wanna hang</a>');
     postElement.append(buttonElement);
     postElement.delegate(".likeButton", "click", function() {
     alert("You're going to: " + post.message + "!");
-  });
+    });
   }
 
   var createFeed = function(data) {
