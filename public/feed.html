@@ -12,12 +12,11 @@
     <div class="nav-links"> <a href="/index.html">Home</a></div>
     <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
     <div class="nav-links"> <a href="/post.html">Post Something</a></div>
-  <button class = "showNextPost">Show Next Post</button>
   </div>
   <h1 class="title">Up and Coming Hangs</h1>
+  <button class = "showNextPost">Show Next Post</button>
   <div class="message-list">
   </div>
-
 
   <script>
   //Hello! This is the start of the JavaScript.
@@ -56,7 +55,7 @@
   }
 
   $(".showNextPost").on("click", nextPost);
-
+    nextPost();
   var createFeed = function(data) {
     data.reverse();
     data.forEach(displayMessage);
