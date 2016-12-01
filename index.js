@@ -33,6 +33,18 @@ app.get('/post', function (req, res) {
 
 });
 
+//pick and return a random element from the given list
+var pickRandomFrom = function (list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+
+//give the client a random post
+var getRandomPost = function (request, response) {
+  var randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+}
+
+app.get('/random', getRandomPost);
 
 //let a client POST something new
 var saveNewPost = function (request, response) {
