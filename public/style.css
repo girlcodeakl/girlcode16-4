@@ -1,19 +1,22 @@
 body {
   text-align: center;
+  background-color: #F7E967
 }
 
+
+
 .message-list {
-  background-color: #FFF0A5;
   padding: 20px;
 }
 .nav-bar a {
   text-decoration: none;
-  color: pink;
+  color: #F7E967;
+  font-family: "Verdana", sans-serif;
 
 }
 .nav-bar {
   display: flex;
-  background-color: purple;
+  background-color: #04BFBF;
   justify-content: space-around;
 
 }
@@ -22,24 +25,38 @@ body {
 }
 
 h1 {
-  color: #FFB03B;
+  color: #04BFBF;
+  font-size: 350%;
+  font-family: "Verdana", sans-serif;
 }
 
 .message {
-  color: black;
+  color: #black;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #FFB03B;
+  border: 2px solid #04BFBF;
   border-radius: 5px;
+  font-family: "Verdana", sans-serif;
 
 }
 
 .time {
-  color: red;
+    color: #588F27;
+  font-family: "Verdana", sans-serif;
+}
+
+.date {
+  color: #588F27
 }
 
 .postId {
   display: none;
+  font-family: "Verdana", sans-serif;
+}
+
+img {
+    height: 350px;
+
 }
 
 form {
