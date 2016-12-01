@@ -41,3 +41,15 @@ h1 {
 .postId {
   display: none;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputbox {
+  display: block;
+  justify-content: center;
+  padding: 15px;
+}

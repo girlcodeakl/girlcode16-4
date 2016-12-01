@@ -12,16 +12,14 @@
     <div class="nav-links"> <a href="/feed.html">Message Feed</a></div>
     <div class="nav-links"> <a href="/post.html">Post Something</a></div>
   </div>
-  <h1 class="title">Posts</h1>
-  <div class="message-list">
-  </div>
+  <h1 class="title">What's your hang?</h1>
   <body>
       <form class= "submitform" method="post" action="/posts">
-          <input class="messageInput" type="text" name="message" placeholder="message goes here">
-          <input class="imageInput" type="text" name=image placeholder="photo url goes here">
-          <input class="nameInput" type="text" name="name" placeholder="type your name here">
-          <input class="dateInput" type="text" name="date" placeholder="enter date here">
-          <input type="submit" value="Submit">
+          <div class="inputbox"> <input class="messageInput" type="text" name="message" placeholder="message goes here"> </div>
+          <div class="inputbox"> <input class="imageInput" type="text" name=image placeholder="photo url goes here"> </div>
+          <div class="inputbox"> <input class="nameInput" type="text" name="name" placeholder="type your name here"> </div>
+          <div class="inputbox"> <input class="dateInput" type="text" name="date" placeholder="enter date here"> </div>
+          <div class="inputbox"> <input type="submit" value="Submit"> </div>
           <div class="note"></div>
       </form>
       <script>
