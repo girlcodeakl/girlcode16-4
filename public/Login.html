@@ -30,5 +30,22 @@
   <label>password: </label><input type="password" class="passwordInput">
   <button class="login">Log In!</button>
   <p class="serverResponse"></p>
+
 </div>
+<body>
+<script>
+var myCoolFunction = function (e) {
+e.preventDefault();
+$(".note").text("Thanks for wanting to hang");
+var data = {};
+data.newUser = $(".newUser .emailInput").val();
+data.emailInput = $(".existingUser .emailInput").val();
+$.post( "/login" , data );
+
+}
+$(".submitform").on("submit",myCoolFunction);
+$( ".dateInput" ).datepicker({ dateFormat: 'dd-mm-yy' });
+
+</script>
+</body>
 </html>
