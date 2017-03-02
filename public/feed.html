@@ -41,8 +41,22 @@
     postElement.append(imageElement);
     var buttonElement = $('<a href="#" class="likeButton">I wanna hang</a>');
     postElement.append(buttonElement);
+
+
+    post.going.forEach(function (person) {
+
+ var goingElement = $('<div class="going">' + "Attendees:" + person.name + person.pic + "<img src= 'https://wantoncreation.files.wordpress.com/2012/02/funny-monkey-78.jpg' class = 'attendingimage'" + '</div>');
+ postElement.append(goingElement);
+})
+
+
+
     postElement.delegate(".likeButton", "click", function() {
     alert("You're going to: " + post.message + "!");
+
+
+
+
     });
   }
 
