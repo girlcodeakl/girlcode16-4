@@ -45,7 +45,7 @@
 
     post.going.forEach(function (person) {
 
- var goingElement = $('<div class="going">' + "Attendees:" + person.name + person.pic + "<img src= 'https://wantoncreation.files.wordpress.com/2012/02/funny-monkey-78.jpg' class = 'attendingimage'" + '</div>');
+ var goingElement = $('<div class="going">' + "Attendees:" + person.name + '<img src = " ' + person.pic + ' " class = "attendingimage" >' +  '</div>');
  postElement.append(goingElement);
 })
 
