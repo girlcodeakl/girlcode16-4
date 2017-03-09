@@ -70,7 +70,16 @@ var saveNewPost = function (request, response) {
   dbPosts.insert(post);
 }
 app.post('/posts', saveNewPost);
+// This lets the user login and sign up
+var login = function(request, response) {
+  response.send("LOG IN NOT FINISHED");
+}
+app.post("/login", login);
 
+var signup = function(request, response) {
+  response.send("SIGN UP NOT FINISHED");
+}
+app.post("/signup", signup);
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
