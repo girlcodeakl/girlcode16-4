@@ -52,7 +52,9 @@
 
 
     postElement.delegate(".likeButton", "click", function() {
-    alert("You're going to: " + post.message + "!");
+      var data = {};
+  data.postId = post.id;
+  $.post("/attending", data);
 
 
 

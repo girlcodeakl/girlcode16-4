@@ -61,7 +61,7 @@ var saveNewPost = function (request, response) {
    post.going.push({name: "Katie", pic:"http://www.babyanimalzoo.com/wp-content/uploads/2012/05/tiny-baby-turtle.jpg"});
    post.going.push({name: "Jess", pic:"http://goodnature.nathab.com/wp-content/uploads/2011/03/19-baby-tiger.jpg"});
    post.going.push({name: "Wynni", pic:"https://68.media.tumblr.com/2cbf6770bd952d35dba5fc853e963aed/tumblr_inline_mrl9mnxvCr1qz4rgp.jpg"});
-   
+
   post.message = request.body.message;
   post.time = new Date();
   post.id = Math.round(Math.random() * 10000);
@@ -95,7 +95,22 @@ mongodb.MongoClient.connect(uri, function(err, newdb) {
     cursor.each(function (err, item) {
       if (item != null) {
         posts.push(item);
+
       }
     });
   });
+});
+
+app.post("/attending", function (req, res) {
+  var getId = req.body.postId;
+  console.log(getId);
+
+  var filterFunction = function (post) {
+      return post.id === getId;
+   };
+   var post = posts.find(filterFunction);
+   res.send(post);
+   console.log(post)
+
+   res.send("thanks");
 });
