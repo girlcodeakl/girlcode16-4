@@ -55,12 +55,6 @@ var saveNewPost = function (request, response) {
 
   var post = {};
   post.going = [];
-   post.going.push({name: "Alice", pic:"https://s-media-cache-ak0.pinimg.com/736x/ff/2d/57/ff2d57e8e1e8c0df80372b976aae4252.jpg"});
-   post.going.push({name: "Matthew", pic:"https://s-media-cache-ak0.pinimg.com/236x/dc/cc/41/dccc41ec06bae74e666db2f1a08095d7.jpg"});
-   post.going.push({name: "Andia", pic:"https://s-media-cache-ak0.pinimg.com/736x/52/3a/25/523a25ef8b034d1186fd08d5ad754072.jpg"});
-   post.going.push({name: "Katie", pic:"http://www.babyanimalzoo.com/wp-content/uploads/2012/05/tiny-baby-turtle.jpg"});
-   post.going.push({name: "Jess", pic:"http://goodnature.nathab.com/wp-content/uploads/2011/03/19-baby-tiger.jpg"});
-   post.going.push({name: "Wynni", pic:"https://68.media.tumblr.com/2cbf6770bd952d35dba5fc853e963aed/tumblr_inline_mrl9mnxvCr1qz4rgp.jpg"});
 
   post.message = request.body.message;
   post.time = new Date();
@@ -112,7 +106,13 @@ app.post("/attending", function (req, res) {
    res.send(post);
    console.log(post)
 
-   var fakeUser = {name: "unknown", pic:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Creative-Tail-Animal-turtle.svg/128px-Creative-Tail-Animal-turtle.svg.png"};
 
-   post.going.push(fakeUser);
+   post.going.push({name: "Alice", pic:"https://s-media-cache-ak0.pinimg.com/736x/ff/2d/57/ff2d57e8e1e8c0df80372b976aae4252.jpg"});
+   post.going.push({name: "Matthew", pic:"https://s-media-cache-ak0.pinimg.com/236x/dc/cc/41/dccc41ec06bae74e666db2f1a08095d7.jpg"});
+   post.going.push({name: "Andia", pic:"https://s-media-cache-ak0.pinimg.com/736x/52/3a/25/523a25ef8b034d1186fd08d5ad754072.jpg"});
+   post.going.push({name: "Katie", pic:"http://www.babyanimalzoo.com/wp-content/uploads/2012/05/tiny-baby-turtle.jpg"});
+   post.going.push({name: "Jess", pic:"http://goodnature.nathab.com/wp-content/uploads/2011/03/19-baby-tiger.jpg"});
+   post.going.push({name: "Wynni", pic:"https://68.media.tumblr.com/2cbf6770bd952d35dba5fc853e963aed/tumblr_inline_mrl9mnxvCr1qz4rgp.jpg"});
+
+
 });
