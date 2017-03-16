@@ -102,7 +102,7 @@ mongodb.MongoClient.connect(uri, function(err, newdb) {
 });
 
 app.post("/attending", function (req, res) {
-  var getId = req.body.postId;
+  var getId = parseInt(req.body.postId);
   console.log(getId);
 
   var filterFunction = function (post) {
@@ -112,5 +112,7 @@ app.post("/attending", function (req, res) {
    res.send(post);
    console.log(post)
 
-   res.send("thanks");
+   var fakeUser = {name: "unknown", pic:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Creative-Tail-Animal-turtle.svg/128px-Creative-Tail-Animal-turtle.svg.png"};
+
+   post.going.push(fakeUser);
 });
