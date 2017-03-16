@@ -37,17 +37,18 @@
 <body>
 <script>
 var onSignup = function(data, textStatus) {
-$(".existingUser .serverResponse").text(data);
+$(".newUsers .serverResponse").text(data);
 }
-var sendnewuserinfo = function (e) {
+var sendNewUserInfo = function (e) {
 e.preventDefault();
-$(".note").text("Have fun hanging!");
 var data = {};
-data.newUser = $(".newUser .emailInput").val();
-data.emailInput = $(".existingUser .emailInput").val();
+data.emailInput = $(".newUser .emailInput").val();
+data.nameInput = $(".newUser .nameInput").val();
+data.pictureInput = $(".newUser .pictureInput").val();
+data.passwordInput = $(".newUser .passwordInput").val();
 $.post( "/signup" , data, onSignup );
-
 }
+
 var onLogin = function(data, textStatus) {
 $(".existingUser .serverResponse").text(data);
 }
@@ -61,7 +62,7 @@ $.post( "/login" , data, onLogin );
 
 }
 
-$(".signupform").on("submit",sendnewuserinfo);
+$(".signupform").on("submit",sendNewUserInfo);
 $(".loginform").on("submit",sendlogininfo);
 $( ".dateInput" ).datepicker({ dateFormat: 'dd-mm-yy' });
 
