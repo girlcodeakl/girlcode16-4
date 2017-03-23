@@ -11,12 +11,18 @@ body {
 .nav-bar a {
   text-decoration: none;
   color: #F7E967;
+  background-color: #04BFBF;
   font-family: "Verdana", sans-serif;
-
+  font-size: 45px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  border-radius: 20px;
+  display: inline-block;
 }
 .nav-bar {
-  display: flex;
-  background-color: #04BFBF;
+  display: inherit;
   justify-content: space-around;
 
 }
@@ -69,6 +75,18 @@ form {
   display: block;
   justify-content: center;
   padding: 15px;
+}
+
+input {
+  display: inline-block;
+  font-size: 20px;
+  font-family: "Verdana", sans-serif;
+}
+
+label {
+  display: inline-block;
+  font-size: 20px;
+  font-family: "Verdana", sans-serif;
 }
 
 .likeButton {
