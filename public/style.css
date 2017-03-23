@@ -24,6 +24,11 @@ body {
 
 }
 
+.goingBox {
+  display:flex;
+justify-content: center;
+}
+
 h1 {
   color: #04BFBF;
   font-size: 350%;
@@ -119,5 +124,6 @@ form {
 
 .attendingimage {
     width: 100px;
-    height: auto;
+    height: 100px;
+    margin: 10px;
 }
