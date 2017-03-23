@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Post a hang</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <meta charset='utf-8'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  </head>
-  <div class="nav-bar">
-    <div class="nav-links"> <a href="/index.html">Home</a></div>
-    <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
-    <div class="nav-links"> <a href="/post.html">Post A Hang</a></div>
-  </div>
-  <h1 class="title">What's your hang?</h1>
-  <form class= "signupform" method="post">
-  <div class="newUser">
-  <h2>New user?</h2>
-  <label>name: </label><input type="text" class="nameInput">
-  <label>email: </label><input type="text" class="emailInput">
-  <label>picture: </label><input type="text" class="pictureInput" placeholder="Insert a URL">
-  <label>password: </label><input type="password" class="passwordInput">
-  <button class="signup">Sign Up!</button>
-  <p class="serverResponse"></p>
-</form>
+<head>
+  <title>Sign up to start hanging!</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<div class="nav-bar">
+  <div class="nav-links"> <a href="/index.html">Home</a></div>
+  <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
+  <div class="nav-links"> <a href="/post.html">Post A Hang</a></div>
 </div>
-<form class= "loginform" method="post">
-<div class="existingUser">
-  <h2>Existing user?</h2>
-  <label>email: </label><input type="text" class="emailInput">
-  <label>password: </label><input type="password" class="passwordInput">
-  <button class="login">Log In!</button>
-  <p class="serverResponse"></p>
-</form>
+<h1 class="title">What's your hang?</h1>
+<form class= "signUpForm" method="post">
+  <div class="newUser">
+    <h2>New user?</h2>
+    <label>name: </label><input type="text" class="nameInput">
+    <label>email: </label><input type="text" class="emailInput">
+    <label>picture: </label><input type="text" class="pictureInput" placeholder="Insert a URL">
+    <label>password: </label><input type="password" class="passwordInput">
+    <button class="signup">Sign Up!</button>
+    <p class="serverResponse"></p>
+  </form>
+</div>
+<form class= "loginForm" method="post">
+  <div class="existingUser">
+    <h2>Existing user?</h2>
+    <label>email: </label><input type="text" class="emailInput">
+    <label>password: </label><input type="password" class="passwordInput">
+    <button class="login">Log In!</button>
+    <p class="serverResponse"></p>
+  </form>
 </div>
 <body>
-<script>
-var onSignup = function(data, textStatus) {
-$(".newUsers .serverResponse").text(data);
-}
-var sendNewUserInfo = function (e) {
-e.preventDefault();
-var data = {};
-data.emailInput = $(".newUser .emailInput").val();
-data.nameInput = $(".newUser .nameInput").val();
-data.pictureInput = $(".newUser .pictureInput").val();
-data.passwordInput = $(".newUser .passwordInput").val();
-$.post( "/signup" , data, onSignup );
-}
+  <script>
+  var onSignup = function(data, textStatus) {
+    $(".newUser .serverResponse").text(data);
+  }
+  var sendNewUserInfo = function (e) {
+    e.preventDefault();
+    var data = {};
+    data.emailInput = $(".newUser .emailInput").val();
+    data.nameInput = $(".newUser .nameInput").val();
+    data.pictureInput = $(".newUser .pictureInput").val();
+    data.passwordInput = $(".newUser .passwordInput").val();
+    $.post( "/signup" , data, onSignup );
+  }
 
-var onLogin = function(data, textStatus) {
-$(".existingUser .serverResponse").text(data);
-}
-var sendlogininfo = function (e) {
-e.preventDefault();
-$(".note").text("Keep it hanging!");
-var data = {};
-data.newUser = $(".newUser .emailInput").val();
-data.emailInput = $(".existingUser .emailInput").val();
-$.post( "/login" , data, onLogin );
+  var onLogin = function(data, textStatus) {
+    $(".existingUser .serverResponse").text(data);
+  }
+  var sendLoginInfo = function (e) {
+    e.preventDefault();
+    var data = {};
+    data.emailInput = $(".existingUser .emailInput").val();
+    data.passwordInput = $(".existingUser .passwordInput").val();
+    $.post( "/login" , data, onLogin );
 
-}
+  }
 
-$(".signupform").on("submit",sendNewUserInfo);
-$(".loginform").on("submit",sendlogininfo);
-$( ".dateInput" ).datepicker({ dateFormat: 'dd-mm-yy' });
+  $(".signUpForm").on("submit",sendNewUserInfo);
+  $(".loginForm").on("submit",sendLoginInfo);
 
-</script>
+  </script>
 </body>
 </html>
