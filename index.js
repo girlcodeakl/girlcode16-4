@@ -88,7 +88,7 @@ app.listen(process.env.PORT || 3000);
 console.log("Hi! I am listening at http://localhost:3000");
 
 var mongodb = require('mongodb');
-var uri = 'mongodb://girlcode2016:girlsrule@ds149567.mlab.com:49567/keep-posts-when-server-restarts2016';
+var uri = 'mongodb://girlcode2016:girlsrule@ds145800.mlab.com:45800/wanna-hang';
 mongodb.MongoClient.connect(uri, function(err, newdb) {
   if(err) throw err;
   console.log("yay we connected to the database");
