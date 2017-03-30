@@ -27,6 +27,7 @@ body {
 .goingBox {
   display:flex;
 justify-content: center;
+flex-wrap:wrap;
 }
 
 h1 {
