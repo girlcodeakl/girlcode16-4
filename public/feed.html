@@ -30,9 +30,7 @@
     var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
     $(".message-list").append(postElement);
 
-    console.log(post)
-    console.log(post.going)
-    console.log(post.going.length)
+    
     var authorElement = $('<div class="author">' + "Hang With: " + post.author + '</div>');
     postElement.append(authorElement);
     var idElement = $('<div class="postId">' + post.id + '</div>');
