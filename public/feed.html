@@ -30,7 +30,7 @@
     var postElement = $('<div class="message">' + post.message + " " + '<div class= "time">'+ $.format.prettyDate(post.time) + '</div>');
     $(".message-list").append(postElement);
 
-
+    
     var authorElement = $('<div class="author">' + "Hang With: " + post.author + '</div>');
     postElement.append(authorElement);
     var idElement = $('<div class="postId">' + post.id + '</div>');
@@ -42,19 +42,24 @@
     var buttonElement = $('<a href="#" class="likeButton">I wanna hang</a>');
     postElement.append(buttonElement);
 
+    var goingBoxElement = $('<div class="goingBox"></div>');
+    postElement.append(goingBoxElement);
+
+    var hangersElement = $('<div>' + post.going.length + " People Hanging" +'</div>' );
+    postElement.append(hangersElement);
 
     post.going.forEach(function (person) {
 
- var goingElement = $('<div class="going">' + "Attendees:" + person.name + '<img src = " ' + person.pic + ' " class = "attendingimage" >' +  '</div>');
- postElement.append(goingElement);
-})
+      var goingElement = $('<div class="going">' + '<img src = " ' + person.pic + ' " class = "attendingimage" >' +  '</div>');
+      goingBoxElement.append(goingElement);
+    })
 
 
 
     postElement.delegate(".likeButton", "click", function() {
       var data = {};
-  data.postId = post.id;
-  $.post("/attending", data);
+      data.postId = post.id;
+      $.post("/attending", data);
 
 
 
@@ -64,14 +69,14 @@
 
   var nextPost = function () {
 
-  $(".message-list").empty ();
+    $(".message-list").empty ();
 
-  $.get("/random", displayMessage);
+    $.get("/random", displayMessage);
 
   }
 
   $(".showNextPost").on("click", nextPost);
-    nextPost();
+  nextPost();
   var createFeed = function(data) {
     data.reverse();
     data.forEach(displayMessage);
