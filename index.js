@@ -80,7 +80,26 @@ app.post('/posts', saveNewPost);
 
 // This lets the user login and sign up
 var login = function(request, response) {
-  response.send("LOG IN NOT FINISHED");
+
+  var searchEmail = request.body.emailInput;
+  var filterFunction = function (account) {
+    return account.email == searchEmail;
+  };
+  var account = accounts.find(filterFunction);
+  res.send(account);
+
+  if (account === undefined) {
+    response.send("Account Not Found");
+  } else {
+    if (account.password !== request.body.passwordInput){
+      response.send ("Password Incorrect");
+    } else {
+      response.send ("Welcome to Wanna-Hang!")
+
+
+    }
+
+  }
 }
 app.post("/login", login);
 
