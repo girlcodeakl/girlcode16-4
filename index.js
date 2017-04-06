@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 
 //make an empty list
 var posts = [];
+var accounts = [];
 
 //let a client GET the list
 var sendPostsList = function (request, response) {
@@ -40,6 +41,11 @@ app.get('/postsinorder', function (req, res) {
 
 });
 
+var sendAccountsList = function (request, response) {
+  response.send(accounts);
+}
+app.get('/accounts', sendAccountsList);
+
 //pick and return a random element from the given list
 var pickRandomFrom = function (list) {
   return list[Math.floor(Math.random()*list.length)];
@@ -55,7 +61,6 @@ var saveNewPost = function (request, response) {
 
   var post = {};
   post.going = [];
-
   post.message = request.body.message;
   post.time = new Date();
   post.id = Math.round(Math.random() * 10000);
@@ -72,16 +77,34 @@ var saveNewPost = function (request, response) {
   dbPosts.insert(post);
 }
 app.post('/posts', saveNewPost);
+
 // This lets the user login and sign up
 var login = function(request, response) {
   response.send("LOG IN NOT FINISHED");
 }
 app.post("/login", login);
 
+
+
 var signup = function(request, response) {
-  response.send("SIGN UP NOT FINISHED");
+
+  var account = {};
+  account.name = request.body.nameInput;
+  account.email = request.body.emailInput;
+    if (request.body.pictureInput === "") {
+    account.picture = "https://queerty-prodweb.s3.amazonaws.com/wp/docs/2016/02/justintrudeautorontopride.jpg";
+  } else {
+    account.picture = request.body.pictureInput;
+  }
+  account.password = request.body.passwordInput;
+  accounts.push(account);
+  response.send("Welcome to Wanna-Hang!");
+  var dbAccounts = database.collection('accounts');
+  dbAccounts.insert(account);
 }
 app.post("/signup", signup);
+
+
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
