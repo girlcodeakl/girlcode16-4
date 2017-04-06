@@ -21,13 +21,28 @@ body {
   border-radius: 20px;
   display: inline-block;
 }
+.nav-bar a:hover {
+  background-color: #0ae8e8;
+}
 .nav-bar {
   display: inherit;
   justify-content: space-around;
 
 }
 .nav-links {
-
+  display: inline-block;
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 130px;
+    height: 130px;
+    margin-top: -25px;
+}
+@media (max-width: 1100px) {
+  .nav-links {
+    display: block;
+  }
 }
 
 h1 {
