@@ -57,6 +57,13 @@ h1 {
   font-family: "Verdana", sans-serif;
 }
 
+h2 {
+  background-color: black;
+  color: #F7E967;
+  font-size: 30px;
+  font-family: "Verdana", sans-serif;
+}
+
 .message {
   color: #black;
   margin: 10px;
@@ -99,15 +106,36 @@ form {
 }
 
 input {
+  background-color: #0ae8e8;
+  color: #F7E967;
   display: inline-block;
+  border-radius: 20px;
   font-size: 20px;
   font-family: "Verdana", sans-serif;
+  text-align: center;
 }
 
+ button {
+   background-color: #04BFBF;
+   border: none;
+   color: #CAFCD8;
+   padding: 5px 15px;
+   border-radius: 8px;
+   text-align: center;
+   text-decoration: none;
+   display: block;
+   width: 137px;
+   margin: 10px auto;
+   font-size: 25px;
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+   position:;
+ }
 label {
-  display: inline-block;
+  display: block;
   font-size: 20px;
   font-family: "Verdana", sans-serif;
+  color: black;
 }
 
 .likeButton {
@@ -127,30 +155,14 @@ label {
   position:;
 
 }
-.showNextPost {
-  background-color: #04BFBF;
-  border: none;
-  color: #CAFCD8;
-  padding: 5px 15px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  width: 137px;
-  margin: 0 auto;
-  font-size: 16px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  position:;
 
-}
 .likeButton:hover {
   background-color: #588F27;
   color: #F7E967;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 }
 
-.showNextPost:hover {
+button:hover {
   background-color: #588F27;
   color: #F7E967;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
