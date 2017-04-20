@@ -14,7 +14,7 @@
     <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
     <div class="nav-links"> <a href="/post.html">Post A Hang</a></div>
   </div>
-  <h1 class="title">Up and Coming Hangs</h1>
+  <h1 class="title">Up Coming Hangs</h1>
   <button class = "showNextPost">Show Next Post</button>
   <div class="message-list">
   </div>
@@ -46,8 +46,9 @@
     var goingBoxElement = $('<div class="goingBox"></div>');
     postElement.append(goingBoxElement);
 
-    var hangersElement = $('<div>' + post.going.length + " People Hanging" +'</div>' );
+    var hangersElement = $('<div><span class= "attendees counter">' + post.going.length + '</span>'+ " People Hanging" +'</div>' );
     postElement.append(hangersElement);
+
 
     post.going.forEach(function (person) {
 
@@ -62,8 +63,10 @@
       data.postId = post.id;
       $.post("/attending", data);
 
-
-
+      var goingElement = $('<div class="going">' + '<img src = " ' + "https://s-media-cache-ak0.pinimg.com/originals/e1/24/dc/e124dcbb35f30e63a353203cbdc5bcac.jpg" + ' " class = "attendingimage" >' +  '</div>');
+      goingBoxElement.append(goingElement);
+      var peoplegoing =   $(".counter").text()
+      $(".counter").text( parseInt (peoplegoing) +1) 
 
     });
   }
@@ -74,7 +77,7 @@
 
     var data = {};
     data.postNumber = postCounter;
-    postCounter = postCounter + 1; 
+    postCounter = postCounter + 1;
     $.get("/postsinorder", data, displayMessage);
 
   }
