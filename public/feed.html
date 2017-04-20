@@ -9,6 +9,7 @@
 </head>
 <body>
   <div class="nav-bar">
+    <img class="logo" src="wannahanglogo.png">
     <div class="nav-links"> <a href="/index.html">Home</a></div>
     <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
     <div class="nav-links"> <a href="/post.html">Post A Hang</a></div>
@@ -20,7 +21,7 @@
 
   <script>
   //Hello! This is the start of the JavaScript.
-
+  var postCounter = 0;
   var displayMessage = function(post) {
 
     if (post.time === undefined) {
@@ -41,21 +42,45 @@
     postElement.append(imageElement);
     var buttonElement = $('<a href="#" class="likeButton">I wanna hang</a>');
     postElement.append(buttonElement);
+
+    var goingBoxElement = $('<div class="goingBox"></div>');
+    postElement.append(goingBoxElement);
+
+    var hangersElement = $('<div>' + post.going.length + " People Hanging" +'</div>' );
+    postElement.append(hangersElement);
+
+    post.going.forEach(function (person) {
+
+      var goingElement = $('<div class="going">' + '<img src = " ' + person.pic + ' " class = "attendingimage" >' +  '</div>');
+      goingBoxElement.append(goingElement);
+    })
+
+
+
     postElement.delegate(".likeButton", "click", function() {
-    alert("You're going to: " + post.message + "!");
+      var data = {};
+      data.postId = post.id;
+      $.post("/attending", data);
+
+
+
+
     });
   }
 
   var nextPost = function () {
 
-  $(".message-list").empty ();
+    $(".message-list").empty ();
 
-  $.get("/random", displayMessage);
+    var data = {};
+    data.postNumber = postCounter;
+    postCounter = postCounter + 1; 
+    $.get("/postsinorder", data, displayMessage);
 
   }
 
   $(".showNextPost").on("click", nextPost);
-    nextPost();
+  nextPost();
   var createFeed = function(data) {
     data.reverse();
     data.forEach(displayMessage);

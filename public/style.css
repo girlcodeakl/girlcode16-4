@@ -11,17 +11,44 @@ body {
 .nav-bar a {
   text-decoration: none;
   color: #F7E967;
+  background-color: #04BFBF;
   font-family: "Verdana", sans-serif;
-
+  font-size: 45px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  border-radius: 20px;
+  display: inline-block;
+}
+.nav-bar a:hover {
+  background-color: #0ae8e8;
 }
 .nav-bar {
-  display: flex;
-  background-color: #04BFBF;
+  display: inherit;
   justify-content: space-around;
 
 }
 .nav-links {
+  display: inline-block;
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    height: 90px;
+    margin-top: -5px;
+}
+@media (max-width: 1100px) {
+  .nav-links {
+    display: block;
+  }
+}
 
+.goingBox {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -41,7 +68,7 @@ h1 {
 }
 
 .time {
-    color: #588F27;
+  color: #588F27;
   font-family: "Verdana", sans-serif;
 }
 
@@ -55,7 +82,7 @@ h1 {
 }
 
 img {
-    height: 350px;
+  height: 350px;
 
 }
 
@@ -71,48 +98,66 @@ form {
   padding: 15px;
 }
 
+input {
+  display: inline-block;
+  font-size: 20px;
+  font-family: "Verdana", sans-serif;
+}
+
+label {
+  display: inline-block;
+  font-size: 20px;
+  font-family: "Verdana", sans-serif;
+}
+
 .likeButton {
   background-color: #04BFBF;
-    border: none;
-    color: #CAFCD8;
-    padding: 5px 15px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: 137px;
-    margin: 0 auto;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-   transition-duration: 0.4s;
-   position:;
+  border: none;
+  color: #CAFCD8;
+  padding: 5px 15px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 137px;
+  margin: 0 auto;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  position:;
 
 }
 .showNextPost {
   background-color: #04BFBF;
-    border: none;
-    color: #CAFCD8;
-    padding: 5px 15px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: 137px;
-    margin: 0 auto;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-   transition-duration: 0.4s;
-   position:;
+  border: none;
+  color: #CAFCD8;
+  padding: 5px 15px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 137px;
+  margin: 0 auto;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  position:;
 
 }
 .likeButton:hover {
-    background-color: #588F27;
-    color: #F7E967;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+  background-color: #588F27;
+  color: #F7E967;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 }
 
 .showNextPost:hover {
-    background-color: #588F27;
-    color: #F7E967;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+  background-color: #588F27;
+  color: #F7E967;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+}
+
+.attendingimage {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
 }
