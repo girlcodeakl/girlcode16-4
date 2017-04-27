@@ -21,6 +21,7 @@
 
   <script>
   //Hello! This is the start of the JavaScript.
+  var alreadyClick = false
   var postCounter = 0;
   var displayMessage = function(post) {
 
@@ -59,6 +60,9 @@
 
 
     postElement.delegate(".likeButton", "click", function() {
+      if (alreadyClick === true) {
+        return;
+      }
       var data = {};
       data.postId = post.id;
       $.post("/attending", data);
@@ -66,13 +70,13 @@
       var goingElement = $('<div class="going">' + '<img src = " ' + "https://s-media-cache-ak0.pinimg.com/originals/e1/24/dc/e124dcbb35f30e63a353203cbdc5bcac.jpg" + ' " class = "attendingimage" >' +  '</div>');
       goingBoxElement.append(goingElement);
       var peoplegoing =   $(".counter").text()
-      $(".counter").text( parseInt (peoplegoing) +1) 
-
+      $(".counter").text( parseInt (peoplegoing) +1)
+      alreadyClick = true;
     });
   }
 
   var nextPost = function () {
-
+    alreadyClick = false;
     $(".message-list").empty ();
 
     var data = {};
@@ -88,6 +92,7 @@
     data.reverse();
     data.forEach(displayMessage);
   }
+
 
   //This is the end of the JavaScript.
   </script>
