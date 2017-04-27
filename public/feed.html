@@ -22,6 +22,7 @@
 
   <script>
   //Hello! This is the start of the JavaScript.
+  var alreadyClick = false
   var postCounter = 0;
   var displayMessage = function(post) {
 
@@ -61,6 +62,9 @@
 
     postElement.delegate(".likeButton", "click", function(e) {
       e.preventDefault();
+      if (alreadyClick === true) {
+        return;
+      }
       var data = {};
       data.postId = post.id;
       $.post("/attending", data);
@@ -69,12 +73,14 @@
       goingBoxElement.append(goingElement);
       var peoplegoing =   $(".counter").text()
       $(".counter").text( parseInt (peoplegoing) +1)
-
+      alreadyClick = true;
     });
   }
 
   var nextPost = function (e) {
     if(e != undefined) e.preventDefault();
+    alreadyClick = false;
+
     $(".message-list").empty ();
 
     var data = {};
@@ -90,6 +96,7 @@
     data.reverse();
     data.forEach(displayMessage);
   }
+
 
   //This is the end of the JavaScript.
   </script>
