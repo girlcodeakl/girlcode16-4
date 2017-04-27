@@ -86,15 +86,19 @@ var login = function(request, response) {
     return account.email == searchEmail;
   };
   var account = accounts.find(filterFunction);
-  res.send(account);
+  // response.send(account);
+
 
   if (account === undefined) {
     response.send("Account Not Found");
+    console.log("Account Not Found");
   } else {
     if (account.password !== request.body.passwordInput){
-      response.send ("Password Incorrect");
+      response.send("Password Incorrect");
+      console.log("Password Incorrect");
     } else {
-      response.send ("Welcome to Wanna-Hang!")
+        response.send("Welcome to Wanna-Hang!");
+        console.log("Welcome to Wanna-Hang!");
 
 
     }
