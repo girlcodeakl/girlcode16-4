@@ -13,6 +13,7 @@
     <div class="nav-links"> <a href="/index.html">Home</a></div>
     <div class="nav-links"> <a href="/feed.html">Up and Coming Hangs</a></div>
     <div class="nav-links"> <a href="/post.html">Post A Hang</a></div>
+    <div class="nav-links"> <a href="/login.html">Login/Sign up</a></div>
   </div>
   <h1 class="title">Up Coming Hangs</h1>
   <button class = "showNextPost">Show Next Post</button>
@@ -59,7 +60,8 @@
 
 
 
-    postElement.delegate(".likeButton", "click", function() {
+    postElement.delegate(".likeButton", "click", function(e) {
+      e.preventDefault();
       if (alreadyClick === true) {
         return;
       }
@@ -75,8 +77,10 @@
     });
   }
 
-  var nextPost = function () {
+  var nextPost = function (e) {
+    if(e != undefined) e.preventDefault();
     alreadyClick = false;
+
     $(".message-list").empty ();
 
     var data = {};
