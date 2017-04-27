@@ -59,7 +59,8 @@
 
 
 
-    postElement.delegate(".likeButton", "click", function() {
+    postElement.delegate(".likeButton", "click", function(e) {
+      e.preventDefault();
       var data = {};
       data.postId = post.id;
       $.post("/attending", data);
@@ -72,8 +73,8 @@
     });
   }
 
-  var nextPost = function () {
-
+  var nextPost = function (e) {
+    if(e != undefined) e.preventDefault();
     $(".message-list").empty ();
 
     var data = {};
